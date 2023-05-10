@@ -88,6 +88,8 @@ const getQ=()=>{
    
   var  difficulty=document.getElementById("diff").value;
   var number=document.getElementById("num").value;
+  number++;
+  console.log("number:",number);
   var gk=`https://opentdb.com/api.php?amount=${number}&category=9&difficulty=${difficulty}&type=multiple`;
     
     var data = fetch(gk).then(
@@ -189,12 +191,14 @@ const getQ=()=>{
             //  document.getElementsByClassName[0].addEventListener("click", function() {
             //   console.log("hehe")
             // });
-              quesno=quesno+1;  
+            quesno=quesno+1; 
               if(quesno==number){
                 document.getElementById("quiz-con").style.display="none";
                 document.getElementById("result").style.display="flex";
-                document.getElementById("score").innerHTML=`${count}/${number}`
+                document.getElementById("score").innerHTML=`${count}/${--number}`;
+                console.log(quesno)
               }
+              
               function check(e){
                 var choice =this.innerHTML;
                 console.log(choice);
